@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Varanasi HydroTrack</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+  
+<style>
+     .container-content {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h3 {
+            background: #007bff;
+            color: #fff;
+            padding: 10px;
+            border-radius: 4px;
+        }
+        h4 {
+            margin-top: 20px;
+            padding: 8px;
+         
+            border-radius: 4px;
+        }
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        .icon {
+            margin-right: 8px;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+        .highlight {
+            color: #007bff;
+            font-weight: bold;
+        }
+        .highlight-green {
+            color: #28a745;
+            font-weight: bold;
+        }
+        .icon-list {
+            display: flex;
+            align-items: center;
+        }
+        .icon-list i {
+            margin-right: 8px;
+        }
+</style>
+
+</head>
+<body>
+    <!-- Spinner Start -->
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border text-secondary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <!-- Spinner End -->
+
+    <!-- Navbar & Hero Start -->
+    <div class="container-fluid position-relative p-0">
+        <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
+            <a href="" class="navbar-brand p-0">
+                <h1 style="color: #007BFF;"><i class="fas fa-hand-holding-water me-3"></i>Varanasi HydroTrack</h1>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="fa fa-bars"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav ms-auto py-0">
+                    <a href="index.html" class="nav-item nav-link active">Home</a>
+                    <a href="about.html" class="nav-item nav-link">About</a>
+                  
+                    <a href="refrence.html" class="nav-item nav-link ">Refrences</a>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container-fluid bg-breadcrumb">
+            <div class="container text-center py-5" style="max-width: 900px;">
+                <h4 class="text-white display-4 mb-4 wow fadeInDown" data-wow-delay="0.1s">Develop a geocoding application that displays a clustered water quality index using MongoDB for effective location mapping</h4>
+            </div>
+        </div>
+    </div>
+    <!-- Navbar & Hero End -->
+    <div class="container-content">
+        <div class="section">
+            <h3><strong><i class="fas fa-water icon"></i> Understanding Water Quality Contour Maps (WQCM)</strong></h3>
+            <p><strong><i class="fas fa-chart-line icon"></i> Water Quality Contour Maps (WQCM)</strong> are critical tools for analyzing and visualizing water quality variations in large water bodies such as bays or inlets. These maps are designed to show <span class="highlight">spatial</span> and <span class="highlight-green">temporal</span> variations in water quality, which can be influenced by factors such as tidal effects, inflows from tributaries, seasonal temperature changes, and rainfall.</p>
+        </div>
+
+        <div class="section">
+            <h3><strong><i class="fas fa-cogs icon"></i> How Water Quality Contour Maps Are Created</strong></h3>
+            <ol>
+                <li><strong><i class="fas fa-database icon"></i> Data Collection</strong>:
+                    <ul>
+                        <li><strong><i class="fas fa-server icon"></i> Sources:</strong> Water quality data is gathered from various sampling sites across the water body. Data sources include environmental agencies, municipalities, and volunteer monitoring groups.</li>
+                        <li><strong><i class="fas fa-tachometer-alt icon"></i> Parameters:</strong> Key parameters measured include nitrogen, phosphorus, pH, turbidity, and other water quality indicators.</li>
+                        <li><strong><i class="fas fa-calendar-check icon"></i> Sampling Frequency:</strong> Data is collected at regular intervals to ensure accurate and up-to-date information.</li>
+                    </ul>
+                </li>
+                <li><strong><i class="fas fa-map icon"></i> Map Generation</strong>:
+                    <ul>
+                        <li><strong><i class="fas fa-history icon"></i> Original Method:</strong> Early contour maps used isolines to denote areas with similar water quality values.</li>
+                        <li><strong><i class="fas fa-palette icon"></i> Current Method:</strong> Modern maps use a raster format where different colors represent varying levels of water quality parameters. This method provides a more intuitive visual representation.</li>
+                        <li><strong><i class="fas fa-project-diagram icon"></i> GIS Interpolation:</strong> The Inverse Distance Weighting (IDW) interpolation method is used to estimate water quality values between sampling points and generate a color-coded map.</li>
+                    </ul>
+                </li>
+                <li><strong><i class="fas fa-calendar-alt icon"></i> Temporal Analysis</strong>:
+                    <ul>
+                        <li><strong><i class="fas fa-calendar-day icon"></i> Multiple Maps:</strong> To observe changes over time, multiple WQCMs are created for different periods.</li>
+                        <li><strong><i class="fas fa-trend-up icon"></i> Trend Detection:</strong> Comparing maps from different time points helps identify seasonal patterns and long-term trends in water quality.</li>
+                    </ul>
+                </li>
+            </ol>
+        </div>
+
+        <div class="section">
+            <h3><strong><i class="fas fa-laptop icon"></i> Website Functionality and How to Use It</strong></h3>
+
+            <h4><strong><i class="fas fa-filter icon"></i> 1. Filters for Data Viewing</strong></h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th><i class="fas fa-filter icon"></i> Filter Type</th>
+                        <th><i class="fas fa-info-circle icon"></i> Purpose</th>
+                        <th><i class="fas fa-caret-down icon"></i> How to Use</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong><i class="fas fa-calendar icon"></i> Year-wise Filter</strong></td>
+                        <td>Allows users to view water quality data for a specific year.</td>
+                        <td>Select the desired year from the dropdown menu under the "Year-wise" filter option. The maps will display water quality data for the selected year.</td>
+                    </tr>
+                    <tr>
+                        <td><strong><i class="fas fa-map-marker-alt icon"></i> Location-wise Filter</strong></td>
+                        <td>Enables users to view water quality data for a specific location.</td>
+                        <td>Choose a location from the dropdown menu under the "Location-wise" filter option. This will show maps specific to the selected location.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4><strong><i class="fas fa-map icon"></i> 2. Map Display</strong></h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th><i class="fas fa-map icon"></i> Feature</th>
+                        <th><i class="fas fa-info-circle icon"></i> Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong><i class="fas fa-map-signs icon"></i> Interactive Maps</strong></td>
+                        <td>Two maps are displayed side-by-side, showing water quality data for comparative analysis. Users can zoom and pan to explore different areas.</td>
+                    </tr>
+                    <tr>
+                        <td><strong><i class="fas fa-map-pin icon"></i> Markers</strong></td>
+                        <td>Each map features markers indicating sampling sites. The color of the markers reflects the Water Quality Index (WQI) to indicate water quality levels at those sites.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4><strong><i class="fas fa-info-circle icon"></i> Location Details</strong></h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th><i class="fas fa-info-circle icon"></i> Feature</th>
+                        <th><i class="fas fa-info-circle icon"></i> Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong><i class="fas fa-info-circle icon"></i> Details Display</strong></td>
+                        <td>Clicking on a marker on the map opens a popup with information about the location, including the state, city, country, and water quality parameters. A link is provided for more detailed information on a separate page.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4><strong><i class="fas fa-star icon"></i> Additional Features</strong></h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th><i class="fas fa-star icon"></i> Feature</th>
+                        <th><i class="fas fa-info-circle icon"></i> Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong><i class="fas fa-spinner icon"></i> Spinner</strong></td>
+                        <td>A loading spinner is displayed while data is being fetched to enhance user experience.</td>
+                    </tr>
+                    <tr>
+                        <td><strong><i class="fas fa-bars icon"></i> Navigation</strong></td>
+                        <td>The website includes a navigation bar to access other sections like Home, About, and How to Help.</td>
+                    </tr>
+                    <tr>
+                        <td><strong><i class="fas fa-search icon"></i> Search</strong></td>
+                        <td>Users can filter through years and locations using the search functionality.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="section">
+            <h4><strong><i class="fas fa-summary icon"></i> Summary</strong></h4>
+            <p>By using <strong>Water Quality Contour Maps</strong>, users can effectively visualize and analyze water quality variations over time and across different locations. This tool helps in detecting <span class="highlight">spatial</span> and <span class="highlight-green">temporal</span> patterns, making it easier to understand and address water quality issues.</p>
+            <p>For more information and to explore the data, use the filters provided on the website to select the parameters and time periods of interest. The interactive maps and detailed location data will help you gain insights into water quality trends and patterns.</p>
+        </div>
+    </div>
+     
+     
+      
+  
+    <div class="container-fluid copyright py-4">
+        <div class="container">
+            <div class="row g-4 align-items-center">
+                <div class="col-md-6 text-center text-md-start mb-md-0">
+                    <span class="text-body"><a href="#" class="border-bottom text-white"><i class="fas fa-copyright text-light me-2"></i>Varanasi HydroTrack</a>, All right reserved.</span>
+                </div>
+                <div class="col-md-6 text-center text-md-end text-body">
+                    Designed By <a class="border-bottom text-white" href="https://supriyajswl.netlify.app/">Supriya Jaiswal</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Copyright End -->
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-secondary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+
+   
+</body>
+</html>

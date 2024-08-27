@@ -1,0 +1,70 @@
+/* yearwise.css */
+
+/* General Body Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Container Styles */
+#mapContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Map Wrapper Styles */
+.map-wrapper {
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 20px;
+}
+
+.map {
+    height: 300px;
+    width: 100%;
+}
+
+/* Details Styles */
+.details {
+    background-color: #f9f9f9;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+/* Pagination Controls Styles */
+#paginationControls {
+    text-align: center;
+    margin: 20px 0;
+}
+
+#paginationControls button {
+    margin: 0 5px;
+    padding: 10px;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#paginationControls button:hover {
+    background-color: #0056b3;
+}
+
+/* Hide Filters Initially */
+#yearFilterContainer,
+#locationFilterContainer {
+    margin: 20px;
+}
+
+#yearFilterContainer {
+    display: block;
+}
+
+#locationFilterContainer {
+    display: none;
+}

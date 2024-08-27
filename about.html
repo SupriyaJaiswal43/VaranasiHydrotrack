@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <title>Varanasi HydroTrack</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="" name="keywords">
+        <meta content="" name="description">
+
+        <!-- Google Web Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wdth,wght@0,75..100,300..800;1,75..100,300..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet"> 
+
+        <!-- Icon Font Stylesheet -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+        <!-- Libraries Stylesheet -->
+        <link href="lib/animate/animate.min.css" rel="stylesheet">
+        <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+
+        <!-- Customized Bootstrap Stylesheet -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Template Stylesheet -->
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+
+    <body>
+
+        <!-- Spinner Start -->
+        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <!-- Spinner End -->
+
+        <!-- Navbar & Hero Start -->
+        <div class="container-fluid position-relative p-0">
+            <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
+                <a href="" class="navbar-brand p-0">
+                    <h1 style="color: #007BFF;"><i class="fas fa-hand-holding-water me-3"></i>Varanasi HydroTrack</h1>
+                    <!-- <img src="img/logo.png" alt="Logo"> -->
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="fa fa-bars"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav ms-auto py-0">
+                        <a href="index.html" class="nav-item nav-link">Home</a>
+                        <a href="about.html" class="nav-item nav-link active">About</a>
+                       
+                        <a href="refrence.html" class="nav-item nav-link ">Refrences</a>
+                    </div>
+                     </div>
+            </nav>
+
+            <div class="container-fluid bg-breadcrumb">
+                <div class="container text-center py-5" style="max-width: 900px;">
+                    <h4 class="text-white display-4 mb-4 wow fadeInDown" data-wow-delay="0.1s">Develop a geocoding application that displays a clustered water quality index using MongoDB for effective location mapping</h4>
+        
+                </div>
+            </div>
+        </div>
+        <!-- Navbar & Hero End -->
+
+        <!-- Modal Search Start -->
+        <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-fullscreen">
+                <div class="modal-content rounded-0">
+                    <div class="modal-header">
+                        <h4 class="modal-title mb-0" id="exampleModalLabel">Search by keyword</h4>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body d-flex align-items-center">
+                        <div class="input-group w-75 mx-auto d-flex">
+                            <input type="search" class="form-control p-3" placeholder="keywords" aria-describedby="search-icon-1">
+                            <span id="search-icon-1" class="input-group-text btn border p-3"><i class="fa fa-search text-white"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal Search End -->
+
+       <!-- Service Start -->
+<!-- Service Start -->
+<div class="container-fluid service bg-light overflow-hidden py-5">
+    <div class="container py-5">
+       
+        <div class="row gx-0 gy-4 align-items-center">
+            <!-- Service Item 1 -->
+            <div class="col-lg-12 col-xl-12 wow fadeInLeft" data-wow-delay="0.2s">
+                <div class="service-item rounded shadow-lg p-4 mb-4 bg-white">
+                    <div class="row align-items-center">
+                        <div class="col-12 d-flex">
+                            <div class="service-content text-start">
+                                <a href="#" class="h4 d-inline-block ">Project Overview</a>
+                                <p class="mb-0 mt-2">Varanasi HydroTrack is an innovative initiative designed to monitor and visualize the
+                                     water quality of Varanasi. Utilizing modern technologies, our project aims to provide a comprehensive
+                                     overview of water quality parameters, thereby contributing to environmental awareness and public health.</p>
+                            </div>
+                            <div class="ps-4">
+                                <div class="service-btn bg-black p-3 rounded-circle text-white"><i class="fas fa-tachometer-alt fa-2x"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service Item 2 -->
+            <div class="col-lg-12 col-xl-12 wow fadeInLeft" data-wow-delay="0.2s">
+                <div class="service-item rounded shadow-lg p-4 mb-4 bg-white">
+                    <div class="row align-items-center">
+                        <div class="col-12 d-flex">
+                            <div class="service-content text-start">
+                                <a href="#" class="h4 d-inline-block">Water Quality Index (WQI)</a>
+                                <p class="mb-0 mt-2">The Water Quality Index (WQI) is a standardized metric used to evaluate the overall quality of surface waters. It is similar to the Trophic State Index (TSI), which is used for lakes and estuaries. Both indices serve as non-regulatory indicators that help identify water bodies needing further study. However, they are not used to determine compliance with water quality standards under the Impaired Waters Rule of the Clean Water Act.
+                                    In Varanasi HydroTrack, WQI is used to assess streams, black waters (natural tea- and coffee-colored waters), 
+                                    and springs. The WQI values are calculated yearly by averaging the index 
+                                    values of selected water quality parameters. 
+                                    These parameters include pH,	TDS,	Turbidity,	Iron(Fe),	Calcium(Ca),	Magnesium(Mg),	Nitrate(NO3-),	Fluoride(F-),	Chloride(Cl-),	Sulfate(SO4^2-,)	Alkalinity,	Hardness(as CaCO3).
+                                </p>
+                                           </div>
+                            <div class="ps-4">
+                                <div class="service-btn  p-3 rounded-circle text-white"><i class="fas fa-tachometer-alt fa-2x"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service Item 3 -->
+           
+
+            <!-- Service Item 4 -->
+            <div class="col-lg-12 col-xl-12 wow fadeInLeft" data-wow-delay="0.2s">
+                <div class="service-item rounded shadow-lg p-4 mb-4 bg-white">
+                    <div class="row align-items-center">
+                        <div class="col-12 d-flex">
+                            <div class="service-content text-start">
+                                <a href="#" class="h4 d-inline-block ">Data Collection and Processing</a>
+                                <p class="mb-0 mt-2">
+                                    Data for Varanasi HydroTrack is collected following established quality assurance rules to 
+                                    ensure accuracy and reliability. The data is collected from various research papers and field studies 
+                                    conducted over the years. The collected data is then processed and stored in CSV and JSON formats, 
+                                    which are subsequently uploaded to our MongoDB database for further analysis and visualization.
+
+
+                                   
+                                </p>
+                            </div>
+                            <div class="ps-4">
+                                <div class="service-btn  p-3 rounded-circle text-white"><i class="fas fa-cogs fa-2x"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service Item 5 -->
+            <div class="col-lg-12 col-xl-12 wow fadeInLeft" data-wow-delay="0.2s">
+                <div class="service-item rounded shadow-lg p-4 mb-4 bg-white">
+                    <div class="row align-items-center">
+                        <div class="col-12 d-flex">
+                            <div class="service-content text-start">
+                                <a href="#" class="h4 d-inline-block">Functionality and Data Flow</a>
+                                <p class="mb-0 mt-2">Users can submit water quality data through a web form. The submitted data is validated and then stored in both CSV and JSON formats. This data is uploaded to the MongoDB database, ensuring that the most recent information is available for visualization.
+<br/>
+                                    Once the data is stored, it is processed to calculate the Water Quality Index (WQI). The processed data is visualized using Chart.js, providing clear and interactive charts that display water quality trends over time.
+                                     Users can customize the charts based on selected time periods and other parameters, enabling a detailed analysis of water quality.</p>
+                            </div>
+                            <div class="ps-4">
+                                <div class="service-btn p-3 rounded-circle text-white"><i class="fas fa-chart-line fa-2x"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service Item 6 -->
+            <div class="col-lg-12 col-xl-12 wow fadeInLeft" data-wow-delay="0.2s">
+                <div class="service-item rounded shadow-lg p-4 mb-4 bg-white">
+                    <div class="row align-items-center">
+                        <div class="col-12 d-flex">
+                            <div class="service-content text-start">
+                                <a href="#" class="h4 d-inline-block">Project Goals</a>
+                                <p class="mb-0 mt-2">The primary goal of Varanasi HydroTrack is to provide a reliable and accessible platform for 
+                                    monitoring water quality in Varanasi. By making this information available to the public, we aim to raise awareness
+                                     about water pollution and its impacts on health and the environment. Additionally, the platform can serve as a valuable 
+                                     tool for researchers and policymakers
+                                     to identify areas needing attention and to implement effective water management strategies.</p>             </div>
+                            <div class="ps-4">
+                                <div class="service-btn  p-3 rounded-circle text-white"><i class="fas fa-bullseye fa-2x"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12 col-xl-12 wow fadeInLeft" data-wow-delay="0.2s">
+                <div class="service-item rounded shadow-lg p-4 mb-4 bg-white">
+                    <div class="row align-items-center">
+                        <div class="col-12 d-flex">
+                            <div class="service-content text-start">
+                                <a href="#" class="h4 d-inline-block">Conclusion</a>
+                                <p class="mb-0 mt-2">
+                                    Varanasi HydroTrack is a step towards a sustainable and informed approach to water quality management in Varanasi.
+                                     By leveraging modern technologies and data-driven insights,
+                                     we aim to contribute to the well-being of the community and the preservation of our natural resources.
+                                </p>
+                            </div>
+                            <div class="ps-4">
+                                <div class="service-btn  p-3 rounded-circle text-white"><i class="fas fa-th fa-2x"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Service Item 7 -->
+            
+        </div>
+    </div>
+</div>
+
+<!-- Service End -->
+
+<!-- Service End -->
+
+
+     
+
+        <!-- Footer Start -->
+       
+        <!-- Footer End -->
+
+        
+        <!-- Copyright Start -->
+        <div class="container-fluid copyright py-4">
+            <div class="container">
+                <div class="row g-4 align-items-center">
+                    <div class="col-md-6 text-center text-md-start mb-md-0">
+                        <span class="text-body"><a href="#" class="border-bottom text-white"><i class="fas fa-copyright text-light me-2"></i>Varanasi HydroTrack</a>, All right reserved.</span>
+                    </div>
+                    <div class="col-md-6 text-center text-md-end text-body">
+                        <!--/*** This template is free as long as you keep the below author’s credit link/attribution link/backlink. ***/-->
+                        <!--/*** If you'd like to use the template without the below author’s credit link/attribution link/backlink, ***/-->
+                        <!--/*** you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". ***/-->
+                        Designed By <a class="border-bottom text-white" href="https://supriyajswl.netlify.app/">Supriya Jaiswal</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Copyright End -->
+
+
+        <!-- Back to Top -->
+        <a href="#" class="btn btn-secondary btn-lg-square rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>   
+
+        
+    <!-- JavaScript Libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+    </body>
+
+</html>

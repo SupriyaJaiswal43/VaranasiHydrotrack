@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Varanasi HydroTrack</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+    <style>
+        .tabledata {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.filter-form {
+    background-color: #ffffff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.radio-group label {
+    font-weight: bold;
+    margin-right: 15px;
+}
+
+.btn-custom {
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 8px;
+    padding: 10px;
+}
+
+.table thead {
+    background-color: #343a40;
+    color: #fff;
+}
+
+.table-responsive {
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    overflow-x: auto;
+}
+
+    </style>
+</head>
+<body>
+    <!-- Spinner Start -->
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border text-secondary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <!-- Spinner End -->
+
+    <!-- Navbar & Hero Start -->
+    <div class="container-fluid position-relative p-0">
+        <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
+            <a href="" class="navbar-brand p-0">
+                <h1 style="color: #007BFF;"><i class="fas fa-hand-holding-water me-3"></i>Varanasi HydroTrack</h1>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="fa fa-bars"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav ms-auto py-0">
+                    <a href="index.html" class="nav-item nav-link active">Home</a>
+                    <a href="about.html" class="nav-item nav-link">About</a>
+                   
+                    <a href="refrence.html" class="nav-item nav-link ">Refrences</a>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container-fluid bg-breadcrumb">
+            <div class="container text-center py-5" style="max-width: 900px;">
+                <h4 class="text-white display-4 mb-4 wow fadeInDown" data-wow-delay="0.1s">Develop a geocoding application that displays a clustered water quality index using MongoDB for effective location mapping</h4>
+            </div>
+        </div>
+    </div>
+    <div class="tabledata container py-5">
+        <h1 class="text-center mb-4">Water Quality Data</h1>
+    
+        <div class="filter-form mb-4">
+            <div class="col-12 text-center mt-4">
+            <div class="row">
+                <div class="col-md-6">
+ 
+            <label for="nameFilter">Filter by Name:</label>
+            <input type="text" id="nameFilter" class="form-control" placeholder="Enter name">
+            </div>
+            <div class="col-md-6">
+            <button type="button" id="filterButton" class="btn btn-custom w-50 py-3">Filter</button>
+            </div>
+        </div>
+        </div>
+        </div>
+        <div class="table-responsive">
+            <table id="documentTable" class="table table-striped table-bordered">
+          
+                <thead class="table-dark text-center">
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Title</th>
+                        <th>Description</th>
+                        <th>Author</th>
+                        <th>Publishing Organization</th>
+                        <th>Organization Website</th>
+                        <th>Year Published</th>
+                        <th>Document Source</th>
+                        <th>Document</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Document data will be inserted here dynamically -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+    </div>
+
+    <!-- Copyright Start -->
+    <div class="container-fluid copyright py-4">
+        <div class="container">
+            <div class="row g-4 align-items-center">
+                <div class="col-md-6 text-center text-md-start mb-md-0">
+                    <span class="text-body"><a href="#" class="border-bottom text-white"><i class="fas fa-copyright text-light me-2"></i>Varanasi HydroTrack</a>, All right reserved.</span>
+                </div>
+                <div class="col-md-6 text-center text-md-end text-body">
+                    Designed By <a class="border-bottom text-white" href="https://supriyajswl.netlify.app/">Supriya Jaiswal</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Copyright End -->
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-secondary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+    <script src="js/documentfilter.js"></script>
+</body>
+</html>

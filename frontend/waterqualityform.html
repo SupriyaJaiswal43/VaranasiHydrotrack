@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Varanasi HydroTrack</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="css/style.css" rel="stylesheet">
+   
+</head>
+<body>
+    <!-- Spinner Start -->
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border text-secondary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <!-- Spinner End -->
+
+    <!-- Navbar & Hero Start -->
+    <div class="container-fluid position-relative p-0">
+        <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
+            <a href="" class="navbar-brand p-0">
+                <h1 style="color: #007BFF;"><i class="fas fa-hand-holding-water me-3"></i>Varanasi HydroTrack</h1>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="fa fa-bars"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav ms-auto py-0">
+                    <a href="index.html" class="nav-item nav-link active">Home</a>
+                    <a href="about.html" class="nav-item nav-link">About</a>
+                   
+                    <a href="refrence.html" class="nav-item nav-link ">Refrences</a>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container-fluid bg-breadcrumb">
+            <div class="container text-center py-5" style="max-width: 900px;">
+                <h4 class="text-white display-4 mb-4 wow fadeInDown" data-wow-delay="0.1s">Develop a geocoding application that displays a clustered water quality index using MongoDB for effective location mapping</h4>
+            </div>
+        </div>
+    </div>
+    <!-- Navbar & Hero End -->
+
+    <!-- Form Section Start -->
+    <div class="container py-5">
+        <div class="text-center mb-5">
+            <h1 class="display-4">Submit a Water Quality Form to the Varanasi HydroTrack</h1>
+        </div>
+        <form id="waterQualityForm" class="form">
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <label for="states" class="form-label">State:</label>
+                    <select id="states" class="form-control" name="state">
+                        <option value="">Select State</option>
+                    </select>
+                    <input type="text" class="form-control mt-2" id="statesText" name="stateText" placeholder="Enter Your State" style="display: none;">
+                </div>
+                <div class="col-md-6">
+                    <label for="cities" class="form-label">City:</label>
+                    <select id="cities" class="form-control" name="city">
+                        <option value="">Select City</option>
+                    </select>
+                    <input type="text" id="citiesText" name="cityText" class="form-control mt-2" placeholder="Enter Your City" style="display: none;">
+                </div>
+                <div class="col-md-6">
+                    <label for="countries" class="form-label">Country:</label>
+                    <select id="countries" class="form-control" name="country">
+                        <option value="">Select Country</option>
+                    </select>
+                    <input type="text" id="countriesText" class="form-control mt-2" name="countryText" placeholder="Enter Your Country" style="display: none;">
+                </div>
+                <div class="col-md-6">
+                    <label for="locations" class="form-label">Location:</label>
+                    <select id="locations" class="form-control" name="location">
+                        <option value="">Select Location</option>
+                    </select>
+                    <input type="text" class="form-control mt-2" id="locationsText" name="locationText" placeholder="Enter Your Location" style="display: none;">
+                </div>
+                <div class="col-md-6">
+                    <label for="years" class="form-label">Year:</label>
+                    <select id="years" class="form-control" name="timePeriod">
+                        <option value="">Select Year</option>
+                    </select>
+                    <input type="text" class="form-control mt-2" id="yearsText" name="yearText" placeholder="Enter Year" style="display: none;">
+                </div>
+                <div class="col-md-6">
+                    <label for="latitude" class="form-label">Latitude:</label>
+                    <input type="number" class="form-control" id="latitude" name="latitude" step="any" required placeholder="Enter Latitude">
+                </div>
+                <div class="col-md-6">
+                    <label for="longitude" class="form-label">Longitude:</label>
+                    <input type="number" class="form-control" id="longitude" name="longitude" step="any" required placeholder="Enter Longitude">
+                </div>
+                <div class="col-md-6">
+                    <label for="ph" class="form-label">pH:</label>
+                    <input type="text" class="form-control" id="ph" name="pH" placeholder="Enter pH">
+                </div>
+                <div class="col-md-6">
+                    <label for="tds" class="form-label">TDS:</label>
+                    <input type="text" class="form-control" id="tds" name="TDS" placeholder="Enter TDS">
+                </div>
+                <div class="col-md-6">
+                    <label for="turbidity" class="form-label">Turbidity:</label>
+                    <input type="text" class="form-control" id="turbidity" name="Turbidity" placeholder="Enter Turbidity">
+                </div>
+                <div class="col-md-6">
+                    <label for="Iron" class="form-label">Iron:</label>
+                    <input type="text" class="form-control" id="Iron" name="Iron" placeholder="Enter Iron">
+                </div>
+                <div class="col-md-6">
+                    <label for="Calcium" class="form-label">Calcium:</label>
+                    <input type="text" class="form-control" id="Calcium" name="Calcium" placeholder="Enter the value of Calcium">
+                </div>
+                <div class="col-md-6">
+                    <label for="Magnesium" class="form-label">Magnesium:</label>
+                    <input type="text" class="form-control" id="Magnesium" name="Magnesium" placeholder="Enter Magnesium">
+                </div>
+                <div class="col-md-6">
+                    <label for="Nitrate" class="form-label">Nitrate:</label>
+                    <input type="text" class="form-control" id="Nitrate" name="Nitrate" placeholder="Enter Nitrate">
+                </div>
+                <div class="col-md-6">
+                    <label for="Fluoride" class="form-label">Fluoride:</label>
+                    <input type="text" class="form-control" id="Fluoride" name="Fluoride" placeholder="Enter Fluoride">
+                </div>
+                <div class="col-md-6">
+                    <label for="Chloride" class="form-label">Chloride:</label>
+                    <input type="text" class="form-control" id="Chloride" name="Chloride" placeholder="Enter Chloride">
+                </div>
+                <div class="col-md-6">
+                    <label for="sulfate" class="form-label">Sulfate:</label>
+                    <input type="text" class="form-control" id="sulfate" name="Sulfate" placeholder="Enter Sulfate">
+                </div>
+                <div class="col-md-6">
+                    <label for="Alkalinity" class="form-label">Alkalinity:</label>
+                    <input type="text" id="Alkalinity" class="form-control" name="Alkalinity" placeholder="Enter Alkalinity">
+                </div>
+                <div class="col-md-6">
+                    <label for="Hardness" class="form-label">Hardness:</label>
+                    <input type="text" class="form-control" id="Hardness" name="Hardness" placeholder="Enter Hardness">
+                </div>
+                <div class="col-12 text-center mt-4">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <button type="submit" class="btn btn-custom w-100 py-3">
+                                <i class="fas fa-paper-plane"></i> Submit
+                            </button>
+                        </div>
+                        <div class="col-md-6">
+                            <a href="waterqualityformdetails.html" id="viewDataButton" class="btn btn-custom w-100 py-3" style="display: none;">
+                                <i class="fas fa-eye"></i> View Your Submitted Data
+                            </a>
+                            
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- Form Section End -->
+  <!-- Copyright Start -->
+    <div class="container-fluid copyright py-4">
+        <div class="container">
+            <div class="row g-4 align-items-center">
+                <div class="col-md-6 text-center text-md-start mb-md-0">
+                    <span class="text-body"><a href="#" class="border-bottom text-white"><i class="fas fa-copyright text-light me-2"></i>Varanasi HydroTrack</a>, All right reserved.</span>
+                </div>
+                <div class="col-md-6 text-center text-md-end text-body">
+                    Designed By <a class="border-bottom text-white" href="https://supriyajswl.netlify.app/">Supriya Jaiswal</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Copyright End -->
+ <!-- Back to Top -->
+    <a href="#" class="btn btn-secondary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
+ <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+ <script src="js/main.js"></script>
+    <script src="js/form.js"></script>
+</body>
+</html>

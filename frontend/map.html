@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <title>Varanasi HydroTrack</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="" name="keywords">
+        <meta content="" name="description">
+
+        <!-- Google Web Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wdth,wght@0,75..100,300..800;1,75..100,300..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet"> 
+<!--leaftmaop-->
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet.heat/dist/leaflet-heat.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.Default.css">
+<link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder/dist/esri-leaflet-geocoder.css">
+<script src="https://kit.fontawesome.com/3b1427370d.js" crossorigin="anonymous"></script>
+        <!-- Icon Font Stylesheet -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+        <!-- Libraries Stylesheet -->
+        <link href="lib/animate/animate.min.css" rel="stylesheet">
+        <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+
+        <!-- Customized Bootstrap Stylesheet -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <!--chart-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.Default.css">
+    <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder/dist/esri-leaflet-geocoder.css">
+    <script src="https://kit.fontawesome.com/3b1427370d.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet.heat/dist/leaflet-heat.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/luxon@2/build/global/luxon.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-luxon@1"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+
+        <!-- Template Stylesheet -->
+        <link href="css/style.css" rel="stylesheet">
+        <style>
+             #map {
+            height: 400px;
+            width: 100%;
+        }
+
+        .description {
+           
+            font-size: 1.2em;
+            line-height: 1.6;
+            color: #333;
+          
+            padding: 20px;
+            border-radius: 8px;
+          
+           
+            margin: 0 auto;
+        }
+        .description p {
+            margin-bottom: 1.5em;
+        }
+        .description p:last-child {
+            margin-bottom: 0;
+        }
+        .highlight {
+            font-weight: bold;
+            color: #007BFF;
+        }
+        </style>
+    </head>
+
+    <body>
+
+        <!-- Spinner Start -->
+        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-border text-secondary" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <!-- Spinner End -->
+
+        <!-- Navbar & Hero Start -->
+        <div class="container-fluid position-relative p-0">
+            <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
+                <a href="" class="navbar-brand p-0">
+                    <h1 style="color: #007BFF;"><i class="fas fa-hand-holding-water me-3"></i>Varanasi HydroTrack</h1>
+                    <!-- <img src="img/logo.png" alt="Logo"> -->
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="fa fa-bars"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                   
+                        <div class="navbar-nav ms-auto py-0">
+                            <a href="demo.html" class="nav-item nav-link active">Home</a>
+                            <a href="about.html" class="nav-item nav-link ">About</a>
+                          
+                            <a href="refrence.html" class="nav-item nav-link ">Refrences</a>
+                        </div>
+                        
+                    <a href="" class="btn btn-success rounded-pill d-inline-flex flex-shrink-0 py-2 px-4" id="goodQualityLocations"> Loading...</a>
+               
+                    <a href="" class="btn btn-danger rounded-pill d-inline-flex flex-shrink-0 py-2 px-4" id="poorQualityLocations">Loading...</a>
+                </div>
+            </nav>
+
+            <!-- Carousel Start -->
+            <div class="carousel-header">
+                <div id="carouselId" class="carousel slide" data-bs-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-bs-target="#carouselId" data-bs-slide-to="0" class="active"></li>
+                        <li data-bs-target="#carouselId" data-bs-slide-to="1"></li>
+                        <li data-bs-target="#carouselId" data-bs-slide-to="2"></li>
+                    </ol>
+                    <div class="container-fluid bg-breadcrumb">
+                        <div class="container text-center py-5" style="max-width: 900px;">
+                            <h4 class="text-white display-4 mb-4 wow fadeInDown" data-wow-delay="0.1s">Develop a geocoding application that displays a clustered water quality index using MongoDB for effective location mapping</h4>
+        
+                        </div>
+                    </div>
+                        </div>
+                    </div>
+                    
+                 
+                </div>
+            </div>
+            <!-- Carousel End -->
+        </div>
+        <!-- Navbar & Hero End -->
+
+        <!-- Modal Search Start -->
+        <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-fullscreen">
+                <div class="modal-content rounded-0">
+                    <div class="modal-header">
+                        <h4 class="modal-title mb-0" id="exampleModalLabel">Search by keyword</h4>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body d-flex align-items-center">
+                        <div class="input-group w-75 mx-auto d-flex">
+                            <input type="search" class="form-control p-3" placeholder="keywords" aria-describedby="search-icon-1">
+                            <span id="search-icon-1" class="input-group-text btn border p-3"><i class="fa fa-search text-white"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal Search End -->
+
+      
+
+
+        <!-- map Start -->
+        <!-- Water Quality Map Start -->
+    <div class="container-fluid ">
+        <div class="container">
+            <div class="text-center">
+                <h1 class="display-4  mb-4">Water Quality Map</h1>
+                <h5 class="text-secondary fw-normal">Displaying water quality data from various locations through map</h5>
+                <div class="description">
+                    <p>Welcome to <span class="highlight">Varanasi HydroTrack</span>, an <span class="highlight">interactive map application</span>
+                         designed to provide <span class="highlight">comprehensive insights</span> into the water quality of Varanasi.
+                          This tool aims to <span class="highlight">raise awareness</span> about water quality issues, offer
+                           <span class="highlight">actionable insights</span>, and support decision-making for local authorities, NGOs,
+                            and the general public. By <span class="highlight">visualizing various water quality parameters</span>, 
+                            Varanasi HydroTrack serves as a <span class="highlight">user-friendly platform</span> for exploring and 
+                            understanding the water quality data across the city.</p>
+                </div>
+            </div>
+            <div class=" rounded p-4 mb-4 shadow-sm">
+                <h3 class="mb-3 text-secondary"><i class="fa fa-info-circle me-2"></i>Instructions</h3>
+                <dl class="mb-0">
+                    <dt class="mb-2"><i class="fa fa-map-marker text-danger me-2"></i><strong>Map Overview</strong></dt>
+                    <dd class="mb-3">Explore water quality data in Varanasi by interacting with the map. Navigate through different areas to see water quality indicators.</dd>
+                    
+                    <dt class="mb-2"><i class="fa fa-arrows-alt text-warning me-2"></i><strong>Map Navigation</strong></dt>
+                    <dd class="mb-3">Use map controls to zoom in and out, and pan across the map. You can also scroll to zoom.</dd>
+                    
+                    <dt class="mb-2"><i class="fa fa-info-circle text-info me-2"></i><strong>Marker Details</strong></dt>
+                    <dd class="mb-3">Click on a marker to view detailed water quality information for that specific location.</dd>
+                    
+                    <dt class="mb-2"><i class="fa fa-fire text-success me-2"></i><strong>Heat Map Details</strong></dt>
+                    <dd class="mb-3">The heatmap layer shows the density of water quality measurements across different regions.</dd>
+                    
+                    <dt class="mb-2"><i class="fa fa-circle text-secondary me-2"></i><strong>Marker Color Coding</strong></dt>
+                    <dd>
+                        <p><i class="fa fa-circle text-success me-2"></i><strong>Green:</strong> WQI ≤ 50 (Good)</p>
+                        <p><i class="fa fa-circle text-warning me-2"></i><strong>Yellow:</strong> WQI 51-100 (Moderate)</p>
+                        <p><i class="fa fa-circle text-danger me-2"></i><strong>Red:</strong> WQI > 100 (Poor)</p>
+                        <p>Click on a marker for more detailed data and analysis.</p>
+                    </dd>
+                </dl>
+            </div>
+            
+            <div id="map"></div>
+            <div class=" rounded p-4 mb-4 shadow-sm">
+                <dl class="mb-0">
+                    <dt class="mb-3">
+                        <i class="fa fa-map-marker text-secondary me-2" aria-hidden="true"></i>
+                        <strong>Toggle Heat Map</strong>
+                    </dt>
+                    <dd class="mb-4">
+                        <p>Check to display the heat map layer showing measurement density.</p>
+                        <label>
+                            <input type="checkbox" id="toggleHeatMap" class="form-check-input me-2"> 
+                            Toggle Heat Map
+                        </label>
+                    </dd>
+                    
+                    <dt class="mb-3">
+                        <i class="fa-sharp fa-solid fa-location-dot text-success me-2"></i>
+                        <strong>Toggle Markers</strong>
+                    </dt>
+                    <dd class="mb-4">
+                        <p>Check to show/hide individual markers indicating Water Quality Index (WQI).</p>
+                        <label>
+                            <input type="checkbox" id="toggleMarkers" class="form-check-input me-2"> 
+                            Toggle Markers
+                        </label>
+                    </dd>
+            
+                    <dt class="mb-3">
+                        <i class="fa-sharp fa-solid fa-location-dot text-warning me-2"></i>
+                        <strong>Toggle Clusters</strong>
+                    </dt>
+                    <dd class="mb-4">
+                        <p>Check to enable/disable clustering of nearby markers.</p>
+                        <label>
+                            <input type="checkbox" id="toggleCluster" class="form-check-input me-2"> 
+                            Toggle Clusters
+                        </label>
+                    </dd>
+            
+                    <dt class="mb-3">
+                        <i class="fa-solid fa-satellite text-secondary me-2"></i>
+                        <strong>Toggle Satellite View</strong>
+                    </dt>
+                    <dd class="mb-4">
+                        <p>Check to switch to satellite view; uncheck for street view.</p>
+                        <label>
+                            <input type="checkbox" id="toggleSatellite" class="form-check-input me-2"> 
+                            Toggle Satellite View
+                        </label>
+                    </dd>
+            
+                    <dt class="mb-3">
+                        <i class="fa-sharp fa-solid fa-location-dot text-secondary me-2"></i>
+                        <strong>Location Dropdown</strong>
+                    </dt>
+                    <dd class="mb-4">
+                        <p>Select a location to zoom into that area.</p>
+                        <label for="locationDropdown" class="form-label">Select Location:</label>
+                        <select id="locationDropdown" class="form-select">
+                            <option value="">Select a location</option>
+                            <!-- Options will be populated dynamically -->
+                        </select>
+                    </dd>
+            
+                    <dt class="mb-3">
+                        <i class="fa fa-download text-success me-2"></i>
+                        <strong>Download Data</strong>
+                    </dt>
+                    <dd class="mb-4">
+                        <p>Click to download water quality data as a CSV file.</p>
+                        <button id="downloadData" class="btn btn-secondary rounded-pill py-1 px-2">
+                            <i class="fa fa-download me-1"></i> Download Data
+                        </button>
+                    </dd>
+            
+                    <dt class="mb-3">
+                        <i class="fa fa-info-circle text-info me-2"></i>
+                        <strong>Get More Info</strong>
+                    </dt>
+                    <dd>
+                        <p>Click here to get more details.</p>
+                        <a href="getmapinfo.html" class="btn btn-secondary rounded-pill py-1 px-2">
+                            <i class="fa fa-info-circle me-1"></i> Click Here
+                        </a>
+                    </dd>
+                </dl>
+            </div>
+            
+        </div>
+    </div>
+    <!-- Water Quality Map End -->
+    
+        <!-- map End -->
+
+       
+        <!-- chartStart -->
+        <div class="container-fluid about overflow-hidden py-5">
+            <div class="container py-5">
+                <h1 class="display-4  mb-4" style="text-align: center;">Water Quality Chart</h1>
+                <h5 class="text-secondary fw-normal" style="text-align: center;">Displaying water quality data from various locations through a bar chart</h5>
+        
+                <div class="description">
+                    <p>This is an <span class="highlight">advanced tool</span> designed to provide an immersive experience for visualizing water quality data. With interactive charts, users can explore detailed insights by selecting specific monitoring sites and filtering data by year.
+                    The platform also offers the convenience of downloading visualizations, either individually or as a comprehensive PDF report. With <span class="highlight">real-time data updates</span>, users are assured of having the latest and most accurate information at their fingertips.
+                    The intuitive interface and flexible charting capabilities make this dashboard an invaluable resource for tracking trends and making well-informed decisions in water quality management and "This will be provided in <span class="highlight">mg/L</span>."</p>
+                </div>
+                <span id="selectedLocationLabel"  class="highlight" class="ms-3"><h2><b>Selected Location: None</b></h2></span>
+                <div class="row">
+                    <div class="col-xl-6 wow fadeInLeft" data-wow-delay="0.2s">
+                        <div class="about-img rounded h-400px">
+                            <div id="chartContainer">
+                                <canvas id="waterQualityChart"></canvas>
+                            </div>
+                            <div class="about-exp"></div>
+                        </div>
+                    </div>
+        
+                    <div class="col-xl-6 wow fadeInRight" data-wow-delay="0.2s">
+                        <div class="about-item">
+                            <div class="rounded p-4 mb-4">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="d-flex">
+                                            <div>
+                                                <a href="#" class="h4 d-inline-block mb-3">Instructions</a>
+                                                <p>Welcome to the Admin Dashboard. Here you can:</p>
+                                                <ul class="list-unstyled">
+                                                    <li><i class="fa fa-arrow-down"></i> Select a site from the dropdown menu to view its parameters.</li>
+                                                    <li>
+                                                        <select id="siteSelector" class="form-select">
+                                                            <!-- Options will be populated dynamically -->
+                                                        </select>
+                                                    </li>
+                                                  
+                                                    <li>
+                                                        <input type="number" hidden id="yearInput" placeholder="Year" min="1900" max="2099" step="1" class="form-control mt-2">
+                                                        <button id="filterDateRange" hidden class="btn btn-secondary mt-2">
+                                                        
+                                                        </button>
+                                                    </li>
+                                                    <li><i class="fa fa-download"></i> Download the chart by clicking 'Download Chart'.</li>
+                                                    <li>
+                                                        <button id="downloadChart" class="btn btn-secondary rounded-pill py-1 px-2 me-2">
+                                                            <i class="fa fa-download"></i> Download Chart
+                                                        </button>
+                                                    </li>
+                                                    <li><i class="fa fa-download"></i> Download all charts as a PDF by clicking 'Download All Charts as PDF'.</li>
+                                                    <li>
+                                                        <button id="downloadAllCharts" class="btn btn-secondary rounded-pill py-1 px-2 me-2">
+                                                            <i class="fa fa-file-pdf"></i> Download All Charts as PDF
+                                                        </button>
+                                                    </li>
+                                                    <li><i class="fa fa-info-circle"></i> Click Here to get more information.</li>
+                                                    <li>
+                                                        <a href="getchartinfo.html" class="btn btn-secondary rounded-pill py-1 px-2 me-2">
+                                                            <i class="fa fa-info-circle"></i> Click Here
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="color-coding-info py-4">
+                    <h4 class="text-center">Color Coding Explanation</h4>
+                    <p>The chart uses color coding to help you easily interpret water quality data:</p>
+                    <ul class="list-unstyled">
+                        <li><span style="color: red;"><i class="fa fa-circle"></i></span> <strong>Red:</strong> Indicates that the measured value exceeds the recommended limit for that parameter. This suggests potential quality issues that need attention.</li>
+                        <li><span style="color: blue;"><i class="fa fa-circle"></i></span> <strong>Blue:</strong> Indicates that the measured value is within the acceptable range. This signifies that the water quality for that parameter is generally good.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        
+
+        <!-- chart End -->
+
+
+      
+
+
+
+
+       
+
+        <!-- Footer Start -->
+       
+        <!-- Footer End -->
+        
+        <!-- Copyright Start -->
+        <div class="container-fluid copyright py-4">
+            <div class="container">
+                <div class="row g-4 align-items-center">
+                    <div class="col-md-6 text-center text-md-start mb-md-0">
+                        <span class="text-body"><a href="#" class="border-bottom text-white"><i class="fas fa-copyright text-light me-2"></i>Varanasi HydroTrack</a>, All right reserved.</span>
+                    </div>
+                    <div class="col-md-6 text-center text-md-end text-body">
+                        <!--/*** This template is free as long as you keep the below author’s credit link/attribution link/backlink. ***/-->
+                        <!--/*** If you'd like to use the template without the below author’s credit link/attribution link/backlink, ***/-->
+                        <!--/*** you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". ***/-->
+                        Designed By <a class="border-bottom text-white" href="https://supriyajswl.netlify.app/">Supriya Jaiswal</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Copyright End -->
+
+
+        <!-- Back to Top -->
+        <a href="#" class="btn btn-secondary btn-lg-square rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>   
+
+        
+    <!-- JavaScript Libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet.heat/dist/leaflet-heat.js"></script>
+    <script src="https://unpkg.com/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
+    <script src="https://unpkg.com/esri-leaflet/dist/esri-leaflet.js"></script>
+    <script src="https://unpkg.com/esri-leaflet-geocoder/dist/esri-leaflet-geocoder.js"></script>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet.heat/dist/leaflet-heat.js"></script>
+    <script src="https://unpkg.com/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
+    <script src="https://unpkg.com/esri-leaflet/dist/esri-leaflet.js"></script>
+    <script src="https://unpkg.com/esri-leaflet-geocoder/dist/esri-leaflet-geocoder.js"></script>
+    <script src="js/visualizations.js"></script>
+    <script src="js/map.js"></script>
+
+    </body>
+
+</html>

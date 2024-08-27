@@ -1,0 +1,36 @@
+[
+    {
+        "dateOfIncident": "2024-08-18T00:00:00.000Z",
+        "timeOfIncident": "12:43",
+        "locationOfIncident": "Varanasi, Sadar, Varanasi, Uttar Pradesh, 221106, India",
+        "waterbody": "demo",
+        "activityConcern": "demo",
+        "additionalInformation": "Demo",
+        "name": "RAJESH KUMAR JAISWAL",
+        "email": "supriyajswl43@gmail.com",
+        "phone": "09415152651",
+        "lat": 25.27272267140106,
+        "lng": 82.96755371214755,
+        "address": "Varanasi, Sadar, Varanasi, Uttar Pradesh, 221106, India",
+        "incidentPhotoPath": "/uploads/Screenshot 2023-11-21 210008.png",
+        "_id": "66c19f1c742f620b7f4b4ef3",
+        "__v": 0
+    },
+    {
+        "dateOfIncident": "2024-08-18T00:00:00.000Z",
+        "timeOfIncident": "12:44",
+        "locationOfIncident": "Varanasi, Sadar, Varanasi, Uttar Pradesh, 221106, India",
+        "waterbody": "demo",
+        "activityConcern": "demo",
+        "additionalInformation": "Demo",
+        "name": "RAJESH KUMAR JAISWAL",
+        "email": "supriyajswl43@gmail.com",
+        "phone": "09415152651",
+        "lat": 25.272713831356242,
+        "lng": 82.96754700382165,
+        "address": "Varanasi, Sadar, Varanasi, Uttar Pradesh, 221106, India",
+        "incidentPhotoPath": "/uploads/Screenshot 2023-11-25 182713.png",
+        "_id": "66c19f6a742f620b7f4b4ef5",
+        "__v": 0
+    }
+]
